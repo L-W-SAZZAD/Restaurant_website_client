@@ -1,8 +1,8 @@
 import React from "react";
-import Button from "../../Utilities/Buton/Button";
+import Button from "../../../Utilities/Buton/Button";
 
-export default function Popular({ popular }) {
-  const { image, price, name, recipe, _id } = popular;
+export default function SinglePizza({ pizza }) {
+  const { image, price, name, recipe, _id } = pizza;
   return (
     <div>
       <div className="card_popular shadow-md shadow-slate-300 p-10 rounded-lg">
@@ -16,9 +16,9 @@ export default function Popular({ popular }) {
         <h2 className="text-xl py-3 text_color_mini">Name: {name}</h2>
         <p className="pb-3 text-[#d6cfcf]">{recipe}</p>
         <h4 className="text-end text-2xl pb-5 text_color">Price: ${price}</h4>
-        {/* <div className=" text-end">
+        <div className=" text-end">
           <Button>Details</Button>
-        </div> */}
+        </div>
       </div>
     </div>
   );

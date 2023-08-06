@@ -53,3 +53,30 @@ body {
     rgb(158, 32, 200)
   );
 }
+.btn_bg_social {
+  background: linear-gradient(
+    90deg,
+    rgb(210, 210, 210),
+    rgba(17, 17, 17, 0.728),
+    rgb(175, 173, 173)
+  );
+}
+.bg_bg {
+  background: linear-gradient(
+    90deg,
+    black,
+    rgb(26, 24, 24),
+    rgb(78, 40, 40),
+    rgb(12, 1, 2)
+  );
+}
+.padding_top {
+  padding-top: 96px;
+}
+.active {
+  color: rgb(173, 31, 31);
+}
+/* .bg-setter {
+  background-image: url("./assets/others/authentication.png");
+ 
+} */

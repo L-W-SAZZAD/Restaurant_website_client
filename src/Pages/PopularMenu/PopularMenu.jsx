@@ -4,6 +4,8 @@ import Popular from "./Popular";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPopularDatas } from "../../features/PopularDatas/popularDatas";
 import Loading from "../../Utilities/Loading/Loading";
+import Error from "../../Utilities/Error/Error";
+import Button from "../../Utilities/Buton/Button";
 
 export default function PopularMenu() {
   const { popularDatas, isLoading, isError, error } = useSelector(
@@ -20,7 +22,7 @@ export default function PopularMenu() {
     content = <Loading />;
   }
   if (!isLoading && isError) {
-    content = <p className="text-center text-red-500 font-medium">{error}</p>;
+    content = <Error error={error} />;
   }
   if (!isLoading && !isError && popularDatas.length === 0) {
     content = (
@@ -28,12 +30,12 @@ export default function PopularMenu() {
     );
   }
   if (!isLoading && !isError && popularDatas.length > 0) {
-    content = popularDatas.map((popular) => (
-      <Popular key={popular._id} popular={popular} />
-    ));
+    content = popularDatas
+      .filter((data) => data.category === "popular")
+      .map((popular) => <Popular key={popular._id} popular={popular} />);
   }
   return (
-    <div className="py-10 lg:w-[1320px] mx-auto lg:px-0 px-3">
+    <div className="npy-10 lg:w-[1320px] mx-auto lg:px-0 px-3">
       <SectionTitle
         title="---Check it out---"
         subTitle="FROM OUR MENU"
@@ -45,6 +47,9 @@ export default function PopularMenu() {
         {/* popular */}
       </div>
       {/* popular data */}
+      <div className="button  pt-10 text-center">
+        <Button>View All</Button>
+      </div>
     </div>
   );
 }
